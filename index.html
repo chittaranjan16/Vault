@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>Secure Vault - Personal Document & Password Storage</title>
+    <meta name="description" content="Secure password vault accessed via QR code with PIN authentication and Google Drive integration for encrypted document storage." />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            colors: {
+              vault: {
+                bg: 'hsl(215.4, 16.3%, 46.9%)',
+                'bg-dark': 'hsl(217.2, 32.6%, 17.5%)',
+                accent: 'hsl(217.2, 91.2%, 59.8%)',
+                success: 'hsl(142.1, 76.2%, 36.3%)',
+                error: 'hsl(0, 62.8%, 30.6%)',
+              }
+            },
+            animation: {
+              'shake': 'shake 0.5s ease-in-out',
+              'pulse-slow': 'pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            },
+            keyframes: {
+              shake: {
+                '0%, 100%': { transform: 'translateX(0)' },
+                '25%': { transform: 'translateX(-5px)' },
+                '75%': { transform: 'translateX(5px)' },
+              },
+              'pulse-slow': {
+                '0%, 100%': { opacity: '1' },
+                '50%': { opacity: '0.5' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background: linear-gradient(135deg, hsl(215.4, 16.3%, 15.3%) 0%, hsl(217.2, 32.6%, 17.5%) 50%, hsl(215.4, 16.3%, 15.3%) 100%);
+        min-height: 100vh;
+      }
+      .vault-pattern {
+        background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0);
+        background-size: 24px 24px;
+      }
+    </style>
+  </head>
+  <body class="font-sans antialiased">
+    <div id="app"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
